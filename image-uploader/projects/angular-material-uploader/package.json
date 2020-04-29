@@ -1,14 +1,19 @@
 {
   "name": "angular-material-image-uploader",
-  "version": "1.0.3",
+  "version": "1.0.6",
   "peerDependencies": {
     "@angular/common": "^9.1.3",
     "@angular/core": "^9.1.3",
-    "tslib": "^1.10.0"
+    "tslib": "^1.10.0",
+    "@angular/cdk": "^9.2.1",
+    "@angular/flex-layout": "^9.0.0-beta.29",
+    "@angular/material": "^9.2.1",
+    "ngx-toastr": "^12.0.1",
+    "ngx-image-cropper": "^3.1.7"
   },
-  "author":"Arun Pandey",
-  "description":"",
-  "keywords":[
+  "author": "Arun Pandey",
+  "description": "",
+  "keywords": [
     "angular",
     "typeScript",
     "angular-material",
