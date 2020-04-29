@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AngularMaterialUploaderModule } from 'angular-material-image-uploader';
+import { AngularMaterialUploaderModule } from 'projects/angular-material-uploader/src/lib/angular-material-uploader.module';
 
 
 @NgModule({
