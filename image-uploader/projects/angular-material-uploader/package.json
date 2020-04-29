@@ -1,0 +1,22 @@
+{
+  "name": "angular-material-image-uploader",
+  "version": "1.0.3",
+  "peerDependencies": {
+    "@angular/common": "^9.1.3",
+    "@angular/core": "^9.1.3",
+    "tslib": "^1.10.0"
+  },
+  "author":"Arun Pandey",
+  "description":"",
+  "keywords":[
+    "angular",
+    "typeScript",
+    "angular-material",
+    "Image Uploader",
+    "Image uploader with cropper",
+    "Material design",
+    "Image Uploader with material design with flex layout",
+    "flexLayout"
+  ],
+  "private": false
+}
