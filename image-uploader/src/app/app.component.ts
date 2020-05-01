@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'image-uploader';
   imageDetails = [];
-  getImageDetails(event) {
-    console.log(event);
+  getImageDetails(fileDetails) {
+    this.imageDetails = fileDetails;
   }
 }

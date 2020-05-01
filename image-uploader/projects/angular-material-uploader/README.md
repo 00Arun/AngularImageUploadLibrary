@@ -56,8 +56,23 @@ export class YourModule {
 
 Add the element to app.component.html:
 ```
-<app-angular-material-uploader></app-angular-material-uploader>
+<app-angular-material-uploader (imageDetails)="getImageDetails($event)"></app-angular-material-uploader>
+
 ```
+
+Add the element to app.component.ts:
+```
+export class AppComponent {
+ 
+  imageDetails = [];
+  getImageDetails(fileDetails) {
+    this.imageDetails = fileDetails;
+  }
+  ...
+}
+
+```
+
 
 Add style element to angular.json style section:
 ```
