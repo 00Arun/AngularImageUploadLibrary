@@ -8,6 +8,9 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'image-uploader';
   imageDetails = [];
+  sizeLimit = 5; //mb
+  isCrop = false;
+  allowedExtension =   [" jpg", " jpeg", " png"];
   getImageDetails(fileDetails) {
     this.imageDetails = fileDetails;
   }
