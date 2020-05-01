@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'image-uploader';
+  /**  Configuration   **/
   imageDetails = [];
   sizeLimit = 5; //mb
   isCrop = false;

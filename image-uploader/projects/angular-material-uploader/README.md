@@ -56,15 +56,20 @@ export class YourModule {
 
 Add the element to app.component.html:
 ```
-<app-angular-material-uploader (imageDetails)="getImageDetails($event)"></app-angular-material-uploader>
+<app-angular-material-uploader [allowImageType]="allowedExtension" [sizeLimit]=sizeLimit [Iscrop]=isCrop
+    (imageDetails)="getImageDetails($event)"></app-angular-material-uploader>
 
 ```
 
 Add the element to app.component.ts:
 ```
 export class AppComponent {
- 
+
+  /**  Configuration   **/
   imageDetails = [];
+  sizeLimit = 5; //mb
+  isCrop = false;
+  allowedExtension =   [" jpg", " jpeg", " png"];
   getImageDetails(fileDetails) {
     this.imageDetails = fileDetails;
   }
