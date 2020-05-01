@@ -1,8 +1,9 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Output, EventEmitter } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { NgImageCropperComponent } from '../ng-image-cropper/ng-image-cropper.component';
 import { DialogService } from '../../_services/dialog.service';
 import { AlertService } from '../../_services/alert.service';
+
 
 
 @Component({
@@ -14,12 +15,13 @@ import { AlertService } from '../../_services/alert.service';
 export class ImageUploaderComponent implements OnInit {
   urlsDetails = [];
   @ViewChild("uploader") uploadInput: ElementRef;
-
+  @Output() imageDetails = new EventEmitter<any[]>();
   constructor(
     public dialog: MatDialog,
     private alertService: AlertService,
     public dialogService: DialogService
-  ) { }
+  ) {
+  }
   ngOnInit(): void {
   }
   public UploadFile(files) {
@@ -55,8 +57,10 @@ export class ImageUploaderComponent implements OnInit {
         if (result.event != 'close') {
           this.urlsDetails.push({
             Url: result.data.base64,
-            DisplayName: result.data.name
+            DisplayName: result.data.name,
+            OriginalImage: result.data.Image
           });
+          this.imageDetails.emit(this.urlsDetails);
         } else {
           this.uploadInput.nativeElement.value = ''
         }
@@ -90,12 +94,12 @@ export class ImageUploaderComponent implements OnInit {
   public onDeleteCall(name: string, index: number) {
     this.dialogService
       .openConfirmDialog("Are you sure you want delete this image?").afterClosed()
-      .subscribe(res => {
-        console.log(res);
+      .subscribe(res => {      
         if (res) {
           if (index !== -1) {
             this.uploadInput.nativeElement.value = ''
             this.urlsDetails.splice(index, 1);
+            this.imageDetails.emit(this.urlsDetails);
           }
         }
       });
