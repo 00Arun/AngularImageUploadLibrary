@@ -10,7 +10,7 @@ export class AppComponent {
   /**  Configuration   **/
   imageDetails = [];
   sizeLimit = 5; //mb
-  isCrop = false;
+  isCrop = true;
   allowedExtension =   [" jpg", " jpeg", " png"];
   getImageDetails(fileDetails) {
     this.imageDetails = fileDetails;
