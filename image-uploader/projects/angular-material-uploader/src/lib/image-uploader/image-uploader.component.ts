@@ -14,6 +14,8 @@ import { AlertService } from '../../_services/alert.service';
 })
 export class ImageUploaderComponent implements OnInit {
   urlsDetails = [];
+  IsView = false;
+  urlView: string;
   @ViewChild("uploader") uploadInput: ElementRef;
   @Output() imageDetails = new EventEmitter<any[]>();
   @Input() allowImageType = [];
@@ -61,7 +63,7 @@ export class ImageUploaderComponent implements OnInit {
     }
     if (IsValidUpload === false) {
       this.alertService.showWarning("", StatusMessage);
-    } else {  
+    } else {
       if (this.Iscrop) {
         const dialogRef = this.dialog.open(NgImageCropperComponent, {
           width: "590px",
@@ -133,5 +135,15 @@ export class ImageUploaderComponent implements OnInit {
         }
       });
   }
-
+  public viewImage(url: string) {
+    if (url != null) {
+      console.log(url)
+      this.urlView = url;
+      this.IsView = true
+    }
+  }
+  public close() {
+    this.IsView = false;
+    this.urlView = '';
+  }
 }
